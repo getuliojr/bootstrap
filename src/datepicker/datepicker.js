@@ -373,7 +373,7 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
           return viewValue;
         } else if (angular.isString(viewValue)) {
           var dateStr = dateFilter(viewValue, dateFormat);
-          if (dateStr == undefined) {
+          if (dateStr === undefined) {
             ngModel.$setValidity('date', false);
             return undefined;
           } else {
