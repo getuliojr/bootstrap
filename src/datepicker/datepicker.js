@@ -378,10 +378,10 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
             return undefined;
           } else {
             var dateParts = dateStr.split(/\/|\.|\-/); //check for "/" or "." or "-" to split date
-            if (dateParts.length === 3)
-              var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-            else
-              var date = new Date(dateStr);
+            var date = new Date(dateStr);
+            if (dateParts.length === 3){
+              date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+            }  
             if (isNaN(date)) {
               ngModel.$setValidity('date', false);
               return undefined;
